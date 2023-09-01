@@ -1,12 +1,12 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import './Card.css'
-import '../assets/img-cards/Portatil.jpg'
+import './Cards.css';
+import Portatil from '/src/assets/img-cards/Portatil.jpg'
 
 function Cards() {
     return (
       <Card className="card" style={{ width: '18rem' }}>
-        <Card.Img className="card-img" variant="top" src="." />
+        <Card.Img className="card-img" variant="top" src={Portatil} />
         <Card.Body>
           <Card.Title className="card-title">Ordenador Portatil</Card.Title>
           <Card.Text className="card-text">

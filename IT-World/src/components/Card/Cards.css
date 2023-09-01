@@ -1,9 +1,9 @@
 .card {
     border: 2px solid #ccc;
-    border-radius: 10px;
+    border-radius: 10px 10px 60px 0px;
     padding: 10px;
     margin: 10px;
-    background-color: #bfd5e9;
+    background: linear-gradient(rgb(30, 85, 204), rgb(202, 226, 248));
   }
   
   .card-img {
@@ -26,5 +26,5 @@
   }
   
   .button-primary:hover {
-    background-color: #0056b3;
+    background-color: #02468f;
   }
