@@ -12,7 +12,7 @@ function NavBarDetails() {
             <Container>
               <Navbar.Brand href="#home"><img 
               alt=""
-              src="./src/images/logoImg.png"
+              src="IT-World/src/assets/images/logoImg.png"
               width="30"
               height="30"
               className="d-inline-block align-top"
