@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Cards.css';
-import Portatil from '../src/assets/img-cards/Portatil.jpg';
+import Portatil from '../../assets/img-cards/Portatil.jpg';
 
 function Cards() {
     return (
