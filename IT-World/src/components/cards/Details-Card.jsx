@@ -1,9 +1,10 @@
-import "IT-World/src/components/cards/Details-Card.jsx";
+import "../cards/Details-Card.css";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import ClickCounter from '../counter/counter.jsx';
+import Camera from '../../assets/images/camera.png';
 
 function CardsDetails() {
   return (
@@ -11,17 +12,17 @@ function CardsDetails() {
       <Card.Body className="box-size">
         <Card.Title>Card Title</Card.Title>
         <Col  className="Big-Photo"xs={0} md={0}>
-            <img src="IT-World/src/assets/images/camera.png" width="200" height="200"></img>
+            <img src={Camera} width="200" height="200"></img>
         </Col>    
         <Row>
           <Col xs={0} md={0}>
-            <img src="IT-World/src/assets/images/camera.png" width="100" height="100"></img>
+            <img src={Camera} width="100" height="100"></img>
           </Col>
           <Col xs={0} md={0}>
-            <img src="IT-World/src/assets/images/camera.png" width="100" height="100"></img>
+            <img src={Camera} width="100" height="100"></img>
           </Col>
           <Col xs={0} md={0}>
-            <img src="IT-World/src/assets/images/camera.png" width="100" height="100"></img>
+            <img src={Camera} width="100" height="100"></img>
           </Col>
         </Row>
         <br></br>

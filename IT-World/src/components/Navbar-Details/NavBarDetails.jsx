@@ -2,6 +2,7 @@ import './NavBarDetails.css'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Logo from'../../assets/images/logoImg.png'
 
 
 
@@ -12,7 +13,7 @@ function NavBarDetails() {
             <Container>
               <Navbar.Brand href="#home"><img 
               alt=""
-              src="IT-World/src/assets/images/logoImg.png"
+              src={Logo}
               width="30"
               height="30"
               className="d-inline-block align-top"
