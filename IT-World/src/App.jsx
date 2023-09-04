@@ -1,12 +1,10 @@
-
-import './App.css'
+import FormFunction from "./components/Form/Form"
 
 function App() {
 
-
   return (
     <>
-
+      <FormFunction />
     </>
   )
 }

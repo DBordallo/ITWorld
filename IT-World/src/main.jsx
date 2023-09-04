@@ -6,11 +6,13 @@ import CardsDetails from './components/cards/cards.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cards from './components/Card/Card.jsx'
 import App from './App.jsx'
+import BasicExample from './components/Nav/Nav.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <>
     <NavBarDetails />
     <CardsDetails />
+    <BasicExample />
     <App />
     <Cards />
     </>,
