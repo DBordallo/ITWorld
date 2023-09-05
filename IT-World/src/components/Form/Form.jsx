@@ -1,8 +1,9 @@
 import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
-import { Form, Button } from "react-bootstrap"
+import { Form, Button } from "react-bootstrap";
+
 function ImageUpload() {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const [imageData, setImageData] = useState('');
   const [imagePreview, setImagePreview] = useState(null);
   const handleImageChange = (e) => {
@@ -12,11 +13,13 @@ function ImageUpload() {
       const base64Data = reader.result;
       setImageData(base64Data);
       setImagePreview(reader.result);
-    };
+      };
+    
     if (file) {
       reader.readAsDataURL(file);
     }
   };
+  
   const onSubmit = (data) => {
     fetch('http://localhost:3000/articles', {
       method: 'POST',
@@ -26,9 +29,6 @@ function ImageUpload() {
       body: JSON.stringify({ imageData }),
     })
       .then((response) => response.json())
-      .then((responseData) => {
-        // Manejar la respuesta del servidor si es necesario.
-      })
       .catch((error) => {
         console.error('Error al subir la imagen:', error);
       });

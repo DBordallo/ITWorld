@@ -5,9 +5,9 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import ClickCounter from '../counter/counter.jsx';
 import Camera from '../../assets/images/camera.png';
-import {Link} from 'react-router-dom';
-import { useParams } from "react-router-dom";
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import removeArticle from "./removeArticle";
 
 function CardsDetails() {
   const {id} = useParams()
@@ -17,13 +17,18 @@ function CardsDetails() {
     .then((response)=> response.json())
     .then((data)=> setArticles(data))
     .catch((error)=> console.error("Error",error))
-  })
+  }, [id])
 
+  const handleDelete = async () => {
+    if (window.confirm("¿Estás seguro de que deseas eliminar este artículo?")) {
+      await removeArticle(id);
+  }
+}
 
   return (
     <div>
       {articles ?(
-     <Card key={articles.id}>
+      <Card key={articles.id}>
       <Card.Body className="box-size" >
         <Card.Title>{articles.title}</Card.Title>
         <Col  className="Big-Photo"xs={0} md={0}>
@@ -68,7 +73,7 @@ function CardsDetails() {
             </svg>{" "}
             </Link>
           </Button>
-          <Button variant="danger">
+          <Button variant="danger" id="deleteBtn" onClick={handleDelete}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
