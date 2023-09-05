@@ -1,25 +1,52 @@
-import { useForm } from "react-hook-form"
-import { Form, Button } from "react-bootstrap"
+import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
+import { Form, Button } from "react-bootstrap";
 
-const FormFunction = () => {
-
-    const { register, formState: { errors }, handleSubmit } = useForm()
-
-    const onSubmit = (data) => {
-        console.log(data)
+function ImageUpload() {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [imageData, setImageData] = useState('');
+    const [imagePreview, setImagePreview] = useState(null);
+    const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+    const base64Data = reader.result.split(',')[1];
+    setImageData(base64Data);
+    setImagePreview(reader.result);
+    };
+    if (file) {
+        reader.readAsDataURL(file);
     }
-
-    return (<>
-    <h2>Publica tu producto</h2>
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    };
+  const onSubmit = (data) => {
+    fetch('http://localhost:3000/articles', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ imageData }),
+    })
+      .then((response) => response.json())
+      .then((responseData) => {
+        // Manejar la respuesta del servidor si es necesario.
+      })
+      .catch((error) => {
+        console.error('Error al subir la imagen:', error);
+      });
+  };
+  return (
+    <div>
+      <h1>Publica tu producto</h1>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group id="title">
             <Form.Label>Título</Form.Label>
             <Form.Control type="text" {...register('title', {
                 required: true,
                 minLength: 3,
-            })}></Form.Control>
-            {errors.title?.type === 'required' && <p>El título es obligatorio</p>}
-            {errors.title?.type === 'minLength' && <p>El título debe tener más de 3 caracteres</p>}
+              })}>
+              </Form.Control>
+              {errors.title?.type === 'required' && <p>El título es obligatorio</p>}
+              {errors.title?.type === 'minLength' && <p>El título debe tener más de 3 caracteres</p>}
         </Form.Group>
         <Form.Group>
             <Form.Label>Descripción</Form.Label>
@@ -46,15 +73,23 @@ const FormFunction = () => {
             {errors.price?.type === 'minPrice' && <p>Precio mínimo: 0€</p>}
             {errors.price?.type === 'maxPrice' && <p>Precio máximo: 10000€</p>}
         </Form.Group>
-    
         <Form.Group>
-            <Form.Control type="file" id="imageInput" accept="image/*"></Form.Control>
+            <Form.Control
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}>
+            </Form.Control>
+            {imagePreview && (
+            <img
+                src={imagePreview}
+                alt="Preview"
+                style={{ maxWidth: '300px', maxHeight: '300px' }}
+            />
+            )}
             <Button type="submit">Subir Imagen</Button>
         </Form.Group>
-
-        <Button type="submit" value="Enviar">Publicar</Button>
-    </Form>
-    </>)
+      </Form>
+    </div>
+  );
 }
-
-export default FormFunction
+export default ImageUpload;
