@@ -2,6 +2,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Cards.css';
 import Portatil from '../../assets/img-cards/Portatil.jpg';
+import { Link } from 'react-router-dom';
+
 
 function Cards() {
     return (
@@ -12,8 +14,9 @@ function Cards() {
           <Card.Text className="card-text">
             Breve descripción del producto
           </Card.Text>
-          <Button className="button-primary" variant="primary">
+          <Button className="button-primary" variant="primary"><Link to='/details/${id}'>
             Entrar
+            </Link>
           </Button>
         </Card.Body>
       </Card>
