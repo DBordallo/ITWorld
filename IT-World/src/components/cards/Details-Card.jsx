@@ -17,7 +17,7 @@ function CardsDetails() {
     .then((response)=> response.json())
     .then((data)=> setArticles(data))
     .catch((error)=> console.error("Error",error))
-  },[])
+  })
 
 
   return (
