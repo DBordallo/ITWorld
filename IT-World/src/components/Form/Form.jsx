@@ -9,7 +9,7 @@ function ImageUpload() {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
-      const base64Data = reader.result.split(',')[1];
+      const base64Data = reader.result;
       setImageData(base64Data);
       setImagePreview(reader.result);
     };
