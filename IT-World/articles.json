@@ -1,8 +1,24 @@
 {
   "articles": [
     {
+      "id": 2,
+      "title": "Mobil",
+      "description": "Nuevo",
+      "quantity": 3,
+      "price": 200,
+      "image": ""
+    },
+    {
       "id": 3,
       "title": "Laptop",
+      "description": "Nuevo",
+      "quantity": 3,
+      "price": 200,
+      "image": ""
+    },
+    {
+      "id": 4,
+      "title": "Mobil",
       "description": "Nuevo",
       "quantity": 3,
       "price": 200,

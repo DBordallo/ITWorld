@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import ClickCounter from '../counter/counter.jsx';
 import Camera from '../../assets/images/camera.png';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import removeArticle from "./removeArticle";
 
@@ -18,10 +18,11 @@ function CardsDetails() {
     .then((data)=> setArticles(data))
     .catch((error)=> console.error("Error",error))
   }, [id])
-
+  const navigate=useNavigate()
   const handleDelete = async () => {
     if (window.confirm("¿Estás seguro de que deseas eliminar este artículo?")) {
       await removeArticle(id);
+      navigate("/")
   }
 }
 
