@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 import { Form, Button } from "react-bootstrap";
+import './Form.css'
 
 function ImageUpload() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -19,7 +20,7 @@ function ImageUpload() {
       reader.readAsDataURL(file);
     }
   };
-  
+
   const onSubmit = (data) => {
     fetch('http://localhost:3000/articles', {
       method: 'POST',
@@ -36,8 +37,8 @@ function ImageUpload() {
   return (
     <div>
       <h1>Publica tu producto</h1>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Group id="title">
+      <Form onSubmit={handleSubmit(onSubmit)} id="formContainer">
+        <Form.Group className='formGroup'>
             <Form.Label>Título</Form.Label>
             <Form.Control type="text" {...register('title', {
                 required: true,
@@ -47,14 +48,14 @@ function ImageUpload() {
               {errors.title?.type === 'required' && <p>El título es obligatorio</p>}
               {errors.title?.type === 'minLength' && <p>El título debe tener más de 3 caracteres</p>}
         </Form.Group>
-        <Form.Group>
+        <Form.Group className='formGroup'>
             <Form.Label>Descripción</Form.Label>
             <Form.Control type="text" {...register('description', {
                 required: true,
             })}></Form.Control>
             {errors.description?.type === 'required' && <p>La descripción es obligatoria</p>}
         </Form.Group>
-        <Form.Group>
+        <Form.Group className='formGroup'>
             <Form.Label>Cantidad</Form.Label>
             <Form.Control type="text" {...register('quantity', {
                 min: 1,
@@ -63,7 +64,7 @@ function ImageUpload() {
             {errors.quantity?.type === 'min' && <p>Cantidad mínima 1 item</p>}
             {errors.quantity?.type === 'max' && <p>Cantidad máxima 100 items</p>}
         </Form.Group>
-        <Form.Group>
+        <Form.Group className='formGroup'>
             <Form.Label>Precio</Form.Label>
             <Form.Control type="text" {...register('price', {
                 minPrice: 0,
@@ -72,7 +73,7 @@ function ImageUpload() {
             {errors.price?.type === 'minPrice' && <p>Precio mínimo: 0€</p>}
             {errors.price?.type === 'maxPrice' && <p>Precio máximo: 10000€</p>}
         </Form.Group>
-        <Form.Group>
+        <Form.Group className='formGroup'>
             <Form.Control
             type="file"
             accept="image/*"
@@ -85,7 +86,7 @@ function ImageUpload() {
                 style={{ maxWidth: '300px', maxHeight: '300px' }}
             />
             )}
-            <Button type="submit">Subir Imagen</Button>
+            <Button type="submit" id="addBtn">Subir Producto</Button>
         </Form.Group>
       </Form>
     </div>
