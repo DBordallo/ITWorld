@@ -1,13 +1,16 @@
 import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 import { Form, Button } from "react-bootstrap";
-import './Form.css'
+import './Form.css';
+import { useNavigate } from 'react-router-dom';
 
-function ImageUpload() {
+function FormFunction() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [imageData, setImageData] = useState('');
   const [imagePreview, setImagePreview] = useState(null);
-  const handleImageChange = (e) => {
+  const navigate = useNavigate()
+
+    const handleImageChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
@@ -19,17 +22,28 @@ function ImageUpload() {
     if (file) {
       reader.readAsDataURL(file);
     }
-  };
+    };
 
   const onSubmit = (data) => {
+    const formData = {
+      title: data.title,
+      description: data.description,
+      quantity: data.quantity,
+      price: data.price,
+      imageData: imageData
+    };
+
     fetch('http://localhost:3000/articles', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ imageData }),
+      body: JSON.stringify(formData),
     })
       .then((response) => response.json())
+      .then((data) => {
+        navigate(`/details/${data.id}`)
+      })
       .catch((error) => {
         console.error('Error al subir la imagen:', error);
       });
@@ -92,4 +106,4 @@ function ImageUpload() {
     </div>
   );
 }
-export default ImageUpload;
+export default FormFunction;
