@@ -6,12 +6,26 @@ import Row from "react-bootstrap/Row";
 import ClickCounter from '../counter/counter.jsx';
 import Camera from '../../assets/images/camera.png';
 import {Link} from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function CardsDetails() {
+  const {id} = useParams()
+  const [articles, setArticles] = useState(null)
+  useEffect(()=>{
+    fetch(`http://localhost:3000/articles/${id}`)
+    .then((response)=> response.json())
+    .then((data)=> setArticles(data))
+    .catch((error)=> console.error("Error",error))
+  },[])
+
+
   return (
-    <Card>
-      <Card.Body className="box-size">
-        <Card.Title>Card Title</Card.Title>
+    <div>
+      {articles ?(
+     <Card key={articles.id}>
+      <Card.Body className="box-size" >
+        <Card.Title>{articles.title}</Card.Title>
         <Col  className="Big-Photo"xs={0} md={0}>
             <img src={Camera} width="200" height="200"></img>
         </Col>    
@@ -29,17 +43,10 @@ function CardsDetails() {
         <br></br>
         <ClickCounter className="ClickCounter">
         </ClickCounter>
-        <h1>€500</h1>
+        <h1>{articles.price}€</h1>
         <br></br>
         
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the cards content.
-          Some quick example text to build on the card title and make up the
-          bulk of the cards content.
-          Some quick example text to build on the card title and make up the
-          bulk of the cards content.
-        </Card.Text>
+        <Card.Text> {articles.description}</Card.Text>
         <div className="text-center">
           <Button variant="primary"> 
           <Link to = "/form">
@@ -76,7 +83,11 @@ function CardsDetails() {
         </div>
       </Card.Body>
     </Card>
-  );
+    ) : (
+      <p>Cargando detalles del artículo...</p>
+    )}
+  </div>
+);
 }
 
 export default CardsDetails;
