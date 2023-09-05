@@ -1,9 +1,9 @@
 .card {
     border: 2px solid #ccc;
-    border-radius: 10px 10px 60px 0px;
+    border-radius: 10px ;
     padding: 10px;
     margin: 10px;
-    background: linear-gradient(rgb(30, 85, 204), rgb(202, 226, 248));
+    background: linear-gradient(#310058, #7FD1FC);
   }
   
   .card-img {
