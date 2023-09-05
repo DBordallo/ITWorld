@@ -1,10 +1,10 @@
-import FormFunction from "./components/Form/Form"
+import ImageUpload from "./components/Form/ImageUpload"
 
 function App() {
 
   return (
     <>
-      <FormFunction />
+      <ImageUpload />
     </>
   )
 }

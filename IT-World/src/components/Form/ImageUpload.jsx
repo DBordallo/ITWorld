@@ -36,17 +36,17 @@ function ImageUpload() {
   };
   return (
     <div>
-      <h1>Publica tu producto</h1>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+        <h1>Publica tu producto</h1>
+        <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group id="title">
             <Form.Label>Título</Form.Label>
             <Form.Control type="text" {...register('title', {
                 required: true,
                 minLength: 3,
-              })}>
-              </Form.Control>
-              {errors.title?.type === 'required' && <p>El título es obligatorio</p>}
-              {errors.title?.type === 'minLength' && <p>El título debe tener más de 3 caracteres</p>}
+            })}>
+            </Form.Control>
+            {errors.title?.type === 'required' && <p>El título es obligatorio</p>}
+            {errors.title?.type === 'minLength' && <p>El título debe tener más de 3 caracteres</p>}
         </Form.Group>
         <Form.Group>
             <Form.Label>Descripción</Form.Label>
@@ -86,7 +86,7 @@ function ImageUpload() {
                 style={{ maxWidth: '300px', maxHeight: '300px' }}
             />
             )}
-            <Button type="submit">Subir Imagen</Button>
+            <Button type="submit">Publicar producto</Button>
         </Form.Group>
       </Form>
     </div>
