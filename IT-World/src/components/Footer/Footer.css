@@ -4,3 +4,10 @@
 .list-text-footer a{
     text-decoration: none;
 }
+.social-icons{
+    list-style: none;
+    background-color: rgb(21, 0, 255);
+    display: flex;
+    align-items: baseline;
+    text-decoration: none;
+}
