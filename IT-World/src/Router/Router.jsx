@@ -20,6 +20,10 @@ const router = createBrowserRouter([
             {
                 path: "/details/:id",
                 element: <CardsDetails />
+            },
+            {
+                path: "/form/:id",
+                element: <Form />
             }
         ]
     }

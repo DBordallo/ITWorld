@@ -8,6 +8,7 @@ import Camera from '../../assets/images/camera.png';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import removeArticle from "./removeArticle";
+import editArticle from "./editArticle";
 
 function CardsDetails() {
   const {id} = useParams()
@@ -33,7 +34,7 @@ function CardsDetails() {
       <Card.Body className="box-size" >
         <Card.Title>{articles.title}</Card.Title>
         <Col  className="Big-Photo"xs={0} md={0}>
-            <img src={Camera} width="200" height="200"></img>
+            <img src={articles.imageData} width="200" height="200"></img>
         </Col>    
         <Row>
           <Col xs={0} md={0}>
@@ -54,8 +55,8 @@ function CardsDetails() {
         
         <Card.Text> {articles.description}</Card.Text>
         <div className="text-center">
-          <Button variant="primary"> 
-          <Link to = "/form">
+          <Button variant="primary" id="editBtn" onClick={editArticle}>
+          <Link to = {`/form/${articles.id}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
