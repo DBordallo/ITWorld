@@ -1,9 +1,9 @@
 import {  render, screen } from "@testing-library/react";
 import {  expect, test } from "vitest";
-import Cards from '../../main'
+import Cards from '../Card/Card'
 
-test('renderiza Cards',()=>{
+test('Renderiza Cards',()=>{
     render(<Cards/>)
-    const countElement = screen.getByText(/portatil/i)
+    const countElement = screen.getByText(/Entrar/i)
     expect(countElement).toBeDefined()
 })
