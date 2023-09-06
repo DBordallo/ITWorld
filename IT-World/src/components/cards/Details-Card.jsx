@@ -8,7 +8,6 @@ import Camera from '../../assets/images/camera.png';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import removeArticle from "./removeArticle";
-import editArticle from "./editArticle";
 
 function CardsDetails() {
   const {id} = useParams()
@@ -27,6 +26,25 @@ function CardsDetails() {
   }
 }
 
+const updateCount= (newCount) => {
+  const data = {... articles, quantity:newCount}
+  fetch (`http://localhost:3000/articles/${articles.id}`,{
+  method: "PUT",
+  headers: {"Content-Type" : "application/json",
+}, body:JSON.stringify (data)
+}
+  )
+  .then ((response)=> {
+    if (response.ok) {
+      console.log("cantidad actualizada")
+    } else {
+      console.log("ERROR AL ACTUALIZAR")
+    }
+  })
+  .catch ( (error)=> {
+    console.log("ERROR EN LA SOLICITUD", error)
+  } )
+}
   return (
     <div>
       {articles ?(
@@ -35,7 +53,7 @@ function CardsDetails() {
         <Card.Title>{articles.title}</Card.Title>
         <Col  className="Big-Photo"xs={0} md={0}>
             <img src={articles.imageData} width="200" height="200"></img>
-        </Col>    
+        </Col>
         <Row>
           <Col xs={0} md={0}>
             <img src={Camera} width="100" height="100"></img>
@@ -48,14 +66,13 @@ function CardsDetails() {
           </Col>
         </Row>
         <br></br>
-        <ClickCounter className="ClickCounter">
-        </ClickCounter>
+        <ClickCounter initialCount={parseInt(articles.quantity)} onUpdate={updateCount} className="ClickCounter" />
         <h1>{articles.price}€</h1>
         <br></br>
         
         <Card.Text> {articles.description}</Card.Text>
         <div className="text-center">
-          <Button variant="primary" id="editBtn" onClick={editArticle}>
+          <Button variant="primary" id="editBtn">
           <Link to = {`/form/${articles.id}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

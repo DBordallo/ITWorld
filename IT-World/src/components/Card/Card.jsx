@@ -1,7 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Cards.css';
-import Portatil from '../../assets/img-cards/Portatil.jpg';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
@@ -22,7 +21,7 @@ function Cards() {
     <Container fluid="md">
       <Row>
       {articles.map((art) => (
-         <Col key={art.id} xs={12} md={4}>
+        <Col key={art.id} xs={12} md={4}>
         <Card className="card" style={{ width: '18rem' }} key={art.id}>
           <Card.Img className="card-img" variant="top" src={art.imageData} />
           <Card.Body>
