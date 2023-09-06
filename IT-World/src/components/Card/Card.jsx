@@ -23,7 +23,7 @@ function Cards() {
       {articles.map((art) => (
         <Col key={art.id} xs={12} md={4}>
         <Card className="card" style={{ width: '18rem' }} key={art.id}>
-          <Card.Img className="card-img" variant="top" src={art.imageData} />
+          <Card.Img className="card-img" variant="top" src={art.imageData} width="200" height="200"/>
           <Card.Body>
             <Card.Title className="card-title">{art.title}</Card.Title>
             <Card.Text className="card-text">{art.description}</Card.Text>
