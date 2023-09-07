@@ -26,9 +26,9 @@ function Cards() {
           <Card.Img className="card-img" variant="top" src={art.imageData} width="200" height="200"/>
           <Card.Body>
             <Card.Title className="card-title">{art.title}</Card.Title>
-            <Card.Text className="card-text">{art.description}</Card.Text>
-            <Card.Text className="card-quantity">{art.quantity}</Card.Text>
-            <Card.Text className="card-price">{art.price}€</Card.Text>
+
+            <Card.Text className="card-quantity">Cantidad: {art.quantity}</Card.Text>
+            <Card.Text className="card-price">Precio: {art.price}€</Card.Text>
             <Button className="button-primary" variant="primary">
               <Link to={`/details/${art.id}`}>
                 Entrar
