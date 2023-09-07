@@ -1,14 +1,16 @@
-import './counter.css' 
+import './counter.css'
 import React, { useState } from 'react';
-function ClickCounter() {
-  const [count, setCount] = useState(0);
+function ClickCounter({initialCount, onUpdate}) {
+  const [count, setCount] = useState(initialCount);
   const handleButtonClick = (operation) => {
     if (operation === 'increment') {
-      setCount(count + 1);
-    } else if (operation === 'decrement') {
-        if (count > 0) {
-            setCount(count - 1);
-        }
+      const newCount = count + 1;
+      setCount(newCount);
+      onUpdate (newCount);
+    } else if (operation === 'decrement' && count>0) {
+          const newCount = count - 1;
+            setCount(newCount);
+            onUpdate (newCount);
     }
   };
   return (
