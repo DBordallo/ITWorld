@@ -1,9 +1,13 @@
-import {  render, screen } from "@testing-library/react";
-import {  expect, test } from "vitest";
-import Cards from '../Card/Card'
 
-test('Renderiza Cards',()=>{
-    render(<Cards/>)
-    const countElement = screen.getByText(/Entrar/i)
-    expect(countElement).toBeDefined()
-})
+import {  expect, test, it } from "vitest";
+import { render, screen } from '@testing-library/react';
+import Cards from './Card';
+
+test('Cards', () => {
+  it('renderiza correctamente', () => {
+    render(<Cards />);
+    const cardsElement = screen.getByTestId('cards');
+    expect(cardsElement).toBeInTheDocument();
+  });
+});
+
