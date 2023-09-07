@@ -1,0 +1,58 @@
+.card{
+    display: flex;
+    align-items: center;
+    align-self: center;
+    width: 80%;
+    height: auto;
+    margin:0 auto;
+    box-shadow: 0px 5px 10px 2px rgba(32,32,32,0.3);
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+.box-size,.card-body{
+display: flex;
+align-items: center;
+}
+.Photo-Details{
+    width: 30rem;
+    height: 30rem;
+    border-radius: 10px;
+}
+.box-size{
+    display: flex;
+    align-items:center;
+    flex-direction:column;
+}
+.Big-Photo{
+    border:0;
+    display: flex;
+    justify-content: center;
+}
+.col{
+    display: flex;
+    justify-content: center;
+}
+.card-text{
+    background-color: rgb(216, 216, 216);
+    border-radius: 7px;
+
+}
+.text-center{
+display: flex;
+justify-content: center;
+gap: 2rem;}
+
+.title-details{
+    margin:0;
+    color: white;
+    font-size: 4rem;
+}
+
+@media (max-width: 800px) {
+    .Photo-Details {
+        width: 15rem; 
+        height: 15rem; 
+      }
+  }
+

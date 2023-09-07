@@ -1,0 +1,27 @@
+#formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formGroup{
+    width: 80%;
+}
+#addBtn{
+    margin-left: 35%;
+}
+h1{
+    margin-left: 4rem;
+}
+#addBtn{
+    margin: 1rem;
+    display: block;
+}
+h1{
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.formGroup{
+    margin-bottom: 1rem;
+
+}
