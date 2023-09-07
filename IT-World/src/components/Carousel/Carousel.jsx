@@ -6,14 +6,14 @@ function Carousels() {
     <Carousel>
       <Carousel.Item interval={3500}>
         <img
-          src='/src/assets/img-carousel/img1.png'
+          src='/src/assets/img-carousel/frame.png'
           alt='img1'
           className='carousel-img' // Aplicar la clase de estilo personalizado
         />
       </Carousel.Item>
       <Carousel.Item interval={3500}>
         <img
-          src='/src/assets/img-carousel/marketing.png'
+          src='/src/assets/img-carousel/Pc.png'
           alt='img2'
           className='carousel-img' // Aplicar la clase de estilo personalizado
         />

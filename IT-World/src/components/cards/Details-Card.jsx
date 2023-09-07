@@ -50,7 +50,7 @@ const updateCount= (newCount) => {
       {articles ?(
       <Card key={articles.id}>
       <Card.Body className="box-size" >
-        <Card.Title><h1>{articles.title}</h1></Card.Title>
+        <Card.Title><h1 className="title-details">{articles.title}</h1></Card.Title>
         <Col  className="Big-Photo"xs={0} md={0}>
             <img src={articles.imageData} className="Photo-Details"></img>
         </Col>

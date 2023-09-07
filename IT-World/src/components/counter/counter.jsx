@@ -15,9 +15,9 @@ function ClickCounter({initialCount, onUpdate}) {
   };
   return (
     <div className='Counter'>
-      <button  onClick={() => handleButtonClick('decrement')} > -</button>
+      <button  className="btn-counter" onClick={() => handleButtonClick('decrement')} > &#160;-&#160; </button>
       <span>{count}</span>
-      <button onClick={() => handleButtonClick('increment')}>+</button>
+      <button className="btn-counter" onClick={() => handleButtonClick('increment')}>+</button>
     </div>
   );
 }
