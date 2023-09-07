@@ -10,17 +10,8 @@ import twitterIcon from '../../assets/img-footer/Twitter1.png';
 function Footer () {
     return(
         <Container className="container-footer">
-            <div>
-                <ul className="list-footer p-3 d-flex justify-content-around">
-                    <li className="list-text-footer text-primary">
-                        <a href="#contact">Contact us</a></li>
-                    <li className="list-text-footer text-primary">
-                        <a href="#enterprice">Our enterprice</a></li>
-                    <li className="list-text-footer text-primary">
-                        <a href="#services">Our services</a></li>
-                    <li className="list-text-footer text-primary">
-                        <a href="#sales">Our sales</a></li>
-                </ul>
+            <div className="div-footer">
+                
                 <ul className="social-icons p-2 d-flex justify-content-around">
                     <li className="social-icons-footer text-primary">
                         <a href="#facebook"><Image src={facebookIcon} alt="Facebook" className="social-icon"/></a></li>

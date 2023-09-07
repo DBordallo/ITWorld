@@ -12,3 +12,16 @@
 h1{
     margin-left: 4rem;
 }
+#addBtn{
+    margin: 1rem;
+    display: block;
+}
+h1{
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.formGroup{
+    margin-bottom: 1rem;
+
+}

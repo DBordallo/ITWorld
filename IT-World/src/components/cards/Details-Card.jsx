@@ -50,27 +50,17 @@ const updateCount= (newCount) => {
       {articles ?(
       <Card key={articles.id}>
       <Card.Body className="box-size" >
-        <Card.Title>{articles.title}</Card.Title>
+        <Card.Title><h1>{articles.title}</h1></Card.Title>
         <Col  className="Big-Photo"xs={0} md={0}>
-            <img src={articles.imageData} width="200" height="200"></img>
+            <img src={articles.imageData} className="Photo-Details"></img>
         </Col>
-        <Row>
-          <Col xs={0} md={0}>
-            <img src={Camera} width="100" height="100"></img>
-          </Col>
-          <Col xs={0} md={0}>
-            <img src={Camera} width="100" height="100"></img>
-          </Col>
-          <Col xs={0} md={0}>
-            <img src={Camera} width="100" height="100"></img>
-          </Col>
-        </Row>
+       
         <br></br>
         <ClickCounter initialCount={parseInt(articles.quantity)} onUpdate={updateCount} className="ClickCounter" />
-        <h1>{articles.price}€</h1>
+        <h1>Precio: {articles.price}€</h1>
         <br></br>
         
-        <Card.Text> {articles.description}</Card.Text>
+        <Card.Text> <h2>{articles.description}</h2></Card.Text>
         <div className="text-center">
           <Button variant="primary" id="editBtn">
           <Link to = {`/form/${articles.id}`}>

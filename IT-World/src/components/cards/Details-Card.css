@@ -6,6 +6,18 @@
     height: auto;
     margin:0 auto;
     box-shadow: 0px 5px 10px 2px rgba(32,32,32,0.3);
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+.box-size,.card-body{
+display: flex;
+align-items: center;
+}
+.Photo-Details{
+    width: 30rem;
+    height: 30rem;
+    border-radius: 10px;
 }
 .box-size{
     display: flex;
@@ -30,4 +42,17 @@
 display: flex;
 justify-content: center;
 gap: 2rem;}
+
+h1{
+    margin:0;
+    color: white;
+    font-size: 4rem;
+}
+
+@media (max-width: 800px) {
+    .Photo-Details {
+        width: 15rem; 
+        height: 15rem; 
+      }
+  }
 

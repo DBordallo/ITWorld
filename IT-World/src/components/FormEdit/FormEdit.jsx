@@ -55,7 +55,7 @@ function FormEdit() {
 
     return (
     <div>
-        <h1>Edita tu producto</h1>
+        <h1>Edita tu producto </h1>
         {article && (
         <Form onSubmit={handleSubmit(onSubmit)} id="formContainer">
             <Form.Group className='formGroup'>
