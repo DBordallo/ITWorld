@@ -18,7 +18,7 @@ function CardsDetails() {
     .then((data)=> setArticles(data))
     .catch((error)=> console.error("Error",error))
   }, [id])
-  const navigate=useNavigate()
+  const navigate= useNavigate()
   const handleDelete = async () => {
     if (window.confirm("¿Estás seguro de que deseas eliminar este artículo?")) {
       await removeArticle(id);
