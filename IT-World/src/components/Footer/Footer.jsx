@@ -1,9 +1,8 @@
 import "./Footer.css";
 import Container from 'react-bootstrap/Container';
-
 function Footer () {
     return(
-        <Container className="container-footer">
+        <Container id="container-footers" className="container-footer">
             <div>
                 <ul className="list-footer p-3 d-flex justify-content-around">
                     <li className="list-text-footer text-primary">
